@@ -1,10 +1,15 @@
 #!/bin/bash
 
 # collect commit message
-read -p 'write your commit msg: ' msg
+read -p 'write commit msg: ' msg
 
-# git cmds
-git add .
+# checks if an arg is passed or not
+if [[ -z $1 ]];
+then
+	git add .
+else
+	git add $1
+fi
 
 git commit \-m "$msg"
 

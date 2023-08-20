@@ -37,12 +37,12 @@ void print_str(va_list args, int *index)
  * two places forward
  * does not return
  */
-void print_per(va_list args, int *index)
+void print_per(va_list args __attribute__((unused)), int *index)
 {
-	char per = va_arg(args, int);
+	char per = '%';
 
-	(*index) += 2;
-	putchar(per);
+	(*index)++;
+	write(1, &per, 1);
 }
 
 /**

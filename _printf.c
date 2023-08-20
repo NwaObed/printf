@@ -20,22 +20,22 @@ int _printf(const char *format, ...)
 	va_start(args, format);
 	while (format[i] != '\0')
 	{
-		j = 0;
-		while (j < 4)
+		/*if (format[i] == '%' && strcmp(&format[i + 1],*/
+		/*	&(print_func[j].specifier[1])) == 0)*/
+
+		for (j = 0; j < 4; j++)
 		{
-			if (format[i] == '%' && strcmp(&format[i], print_func[j].specifier) == 0)
+			if (format[i] == '%'
+				&& format[i + 1] == (print_func[j].specifier[1]))
 			{
 				print_func[j].print(args, &i);
-				i += 2;
 				break;
 			}
-			j++;
 		}
-		if (j == 4)
-		{
-			putchar(format[i]);
-			i++;
-		}
+
+
+/*		else*/
+			/*write(1, &format[i], 1);*/
 		i++;
 	}
 	va_end(args);

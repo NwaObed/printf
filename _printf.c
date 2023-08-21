@@ -38,10 +38,10 @@ int _printf(const char *format, ...)
 		r_len++;
 		i++;
 	}
-	va_end(args);
 
 	if (format[i] == '%' && format[i + 1] == '\0')
 		return (-1);
 
 	return (r_len);
+	va_end(args);
 }

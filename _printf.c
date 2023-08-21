@@ -15,27 +15,27 @@ int _printf(const char *format, ...)
 		{"%d", print_int},
 	};
 
-	int i = 0, j;
+	int i = 0, r_len = 0;
+	/* stores the size of the print_func */
+	size_t j, s_num = sizeof(print_func) / sizeof(print_func[0]);
 
 	va_start(args, format);
 	while (format[i] != '\0')
 	{
-		/*if (format[i] == '%' && strcmp(&format[i + 1],*/
-		/*	&(print_func[j].specifier[1])) == 0)*/
-
-		for (j = 0; j < 4; j++)
+		for (j = 0; j < s_num; j++)
 		{
-			if (format[i] == '%'
-				&& format[i + 1] == (print_func[j].specifier[1]))
+			if (format[i] == print_func[j].specifier[0]
+				&& format[i + 1] == print_func[j].specifier[1])
 			{
-				print_func[j].print(args, &i);
+				r_len += print_func[j].print(args);
+				i += 2;
 				break;
 			}
 		}
-
-
-/*		else*/
-			/*write(1, &format[i], 1);*/
+		if (j < s_num)
+			continue;
+		putchar(format[i]);
+		r_len++;
 		i++;
 	}
 	va_end(args);
@@ -43,5 +43,5 @@ int _printf(const char *format, ...)
 	if (format[i] == '%' && format[i + 1] == '\0')
 		return (-1);
 
-	return (i);
+	return (r_len);
 }

@@ -3,60 +3,61 @@
 /**
  * print_char - helper function to print char
  * @args: list of arguments
- * @index: to move th current *index,
- * two places forward
- * does not return
+ * Return: 1 - length of char
  */
-void print_char(va_list args, int *index)
+int print_char(va_list args)
 {
 	char c = va_arg(args, int);
 
-	(*index) += 2;
 	putchar(c);
+	return (1);
 }
 
 /**
  * print_str - helper function to print string
  * @args: list of arguments
- * @index: to move th current *index,
- * two places forward
- * does not return
+ * Return: returns length of string
  */
-void print_str(va_list args, int *index)
+int print_str(va_list args)
 {
 	char *s = va_arg(args, char *);
+	int i, s_len;
 
-	(*index) += 2;
-	write(1, s, strlen(s));
+	if (s == NULL)
+	{
+		s = "(empty)";
+		for (i = 0; i < 7; i++)
+			putchar(s[i]);
+	}
+	else
+	{
+		s_len = strlen(s);
+		for (i = 0; i < s_len; i++)
+			putchar(s[i]);
+	}
+	return (s_len);
 }
 
 /**
  * print_per - helper function to print %
  * @args: list of arguments
- * @index: to move th current *index,
- * two places forward
- * does not return
+ * Return: 1
  */
-void print_per(va_list args __attribute__((unused)), int *index)
+int print_per(va_list args __attribute__((unused)))
 {
 	char per = '%';
 
-	(*index)++;
-	write(1, &per, 1);
+	putchar(per);
+	return (1);
 }
 
 /**
  * print_int - prints the format string
  * if no specifier is encountered
  * @args: list of arguments
- * @index: to move th current *index,
- * the length of the string forward
- * doesn't return value
+ * Return: integer printed ?
  */
-void print_int(va_list args, int *index)
+int print_int(va_list args __attribute__((unused)))
 {
-	char *n = va_arg(args, char *);
-
-	(*index) += 2;
-	write(1, n, strlen(n));
+	return (0);
 }

@@ -25,9 +25,10 @@ int print_str(va_list args)
 
 	if (s == NULL)
 	{
-		s = "(empty)";
-		for (i = 0; i < 7; i++)
-			putchar(s[i]);
+/*		s = "(empty)";*/
+/*		for (i = 0; i < 7; i++)*/
+/*			putchar(s[i]);*/
+		return (-1);
 	}
 	else
 	{

@@ -21,7 +21,7 @@ int main(void)
 	_printf("Len1:[%d]\n", len1);
 	_printf("Len2:[%d]\n", len2);
 
-	printf("-----------------------------------------------------------");
+	printf("-----------------------------------------------------------\n");
 
 	printf("Character:[%c]\n", 'H');
 	len = printf("Character:[%c]\n", 'H');

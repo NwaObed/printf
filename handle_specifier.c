@@ -81,3 +81,41 @@ int print_int(va_list args __attribute__((unused)))
 	}
 	return (count);
 }
+
+/**
+ * print_decimal - prints the format string
+ * if no specifier is encountered
+ * @args: list of arguments
+ * Return: integer printed ?
+ */
+int print_decimal(va_list args __attribute__((unused)))
+{
+	int d = va_arg(args, int);
+	int val = 0, dgt, tmp, count = 0;
+	int j, div = 1; /*multiplies by 10*/
+	/* to collect most significant digits*/
+
+	if (d < 0)
+	{
+		_putchar('-');
+		d = -d;
+		count++;
+	}
+	tmp = d;
+	while (tmp > 0)
+	{
+		tmp /= 10;
+		val++;
+	}
+	for (j = 0; j < val; j++)
+		div = div * 10;
+	while (div > 0)
+	{
+		dgt = d / div;
+		_putchar('0' + dgt); /*conversion*/
+		d %= div; /*removing most signfct val */
+		div /= 10; /*moves to next signfct val */
+		count++;
+	}
+	return (count);
+}

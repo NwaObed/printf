@@ -23,5 +23,6 @@ int print_char(va_list args);
 int print_str(va_list args);
 int print_per(va_list args);
 int print_int(va_list args);
+int print_decimal(va_list args);
 
 #endif /* MAIN_H */

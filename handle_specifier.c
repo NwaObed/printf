@@ -53,40 +53,31 @@ int print_per(va_list args __attribute__((unused)))
 int print_int(va_list args __attribute__((unused)))
 {
 	int i = va_arg(args, int);
-	int ind = 0, r;
-	int count = 0;
-	char result[2];
-	int dgt, j = i;
+	int val = 0, dgt, tmp, count = 0;
+	int j, div = 1; /*multiplies by 10*/
+	/* to collect most significant digits*/
 
-	if (i < 10)
-		putchar('0' + i);
-	else
+	if (i < 0)
 	{
-		while (i >= 10)
-		{
-			i /= 10;
-			count++;
-		}
-		i = j;
-		while (i >= 10)
-		{
-			dgt = i % 10;
-			result[ind] = dgt;
-			i /= 10;
-			ind++;
-		}
-		result[ind++] = i;
-		printf("%c", result[0]);
-		for (r = (strlen(result) - 1); r == 0; r--)
-		{
-			if (result[r] == '\0')
-				continue;
-		else
-			 printf("I am reversed");
-			putchar(result[r]);
-		}
+		_putchar('-');
+		i = -i;
+		count++;
 	}
-/*	printf("%d", count);*/
-/*	printf("%s", result);*/
+	tmp = i;
+	while (tmp > 0)
+	{
+		tmp /= 10;
+		val++;
+	}
+	for (j = 0; j < val; j++)
+		div = div * 10;
+	while (div > 0)
+	{
+		dgt = i / div;
+		_putchar('0' + dgt); /*conversion*/
+		i %= div; /*removing most signfct val */
+		div /= 10; /*moves to next signfct val */
+		count++;
+	}
 	return (count);
 }

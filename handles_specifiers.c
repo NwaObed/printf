@@ -60,5 +60,8 @@ int print_per(va_list args __attribute__((unused)))
  */
 int print_int(va_list args __attribute__((unused)))
 {
-	return (0);
+	int i = 5;
+
+
+	return (i);
 }

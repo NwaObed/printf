@@ -42,6 +42,7 @@ int _printf(const char *format, ...)
 	if (format[i] == '%' && format[i + 1] == '\0')
 		return (-1);
 
-	return (r_len);
+	/*printf("r_len: %d\n", r_len);*/
+	return (r_len - 1);
 	va_end(args);
 }

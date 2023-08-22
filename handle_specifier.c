@@ -9,7 +9,7 @@ int print_char(va_list args)
 {
 	char c = va_arg(args, int);
 
-	putchar(c);
+	_putchar(c);
 	return (1);
 }
 
@@ -25,12 +25,9 @@ int print_str(va_list args)
 
 	if (s == NULL)
 		return (-1);
-	else
-	{
-		s_len = strlen(s);
-		for (i = 0; i < s_len; i++)
-			putchar(s[i]);
-	}
+	s_len = strlen(s);
+	for (i = 0; i < s_len; i++)
+		_putchar(s[i]);
 	return (s_len);
 }
 
@@ -43,7 +40,7 @@ int print_per(va_list args __attribute__((unused)))
 {
 	char per = '%';
 
-	putchar(per);
+	_putchar(per);
 	return (1);
 }
 
@@ -60,8 +57,7 @@ int print_int(va_list args __attribute__((unused)))
 	int count = 0;
 	char result[2];
 	int dgt, j = i;
-	char *ptr;
-	
+
 	if (i < 10)
 		putchar('0' + i);
 	else

@@ -43,6 +43,6 @@ int _printf(const char *format, ...)
 		return (-1);
 
 	/*printf("r_len: %d\n", r_len);*/
-	return (r_len - 1);
+	return (r_len);
 	va_end(args);
 }

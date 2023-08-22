@@ -69,7 +69,7 @@ int print_int(va_list args __attribute__((unused)))
 		tmp /= 10;
 		val++;
 	}
-	for (j = 0; j < val; j++)
+	for (j = 0; j < val - 1; j++)
 		div = div * 10;
 	while (div > 0)
 	{
@@ -107,7 +107,7 @@ int print_decimal(va_list args __attribute__((unused)))
 		tmp /= 10;
 		val++;
 	}
-	for (j = 0; j < val; j++)
+	for (j = 0; j < val - 1; j++)
 		div = div * 10;
 	while (div > 0)
 	{

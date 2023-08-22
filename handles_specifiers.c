@@ -9,7 +9,7 @@ int print_char(va_list args)
 {
 	char c = va_arg(args, int);
 
-	putchar(c);
+	_putchar(c);
 	return (1);
 }
 
@@ -27,14 +27,14 @@ int print_str(va_list args)
 	{
 /*		s = "(empty)";*/
 /*		for (i = 0; i < 7; i++)*/
-/*			putchar(s[i]);*/
+/*			_putchar(s[i]);*/
 		return (-1);
 	}
 	else
 	{
 		s_len = strlen(s);
 		for (i = 0; i < s_len; i++)
-			putchar(s[i]);
+			_putchar(s[i]);
 	}
 	return (s_len);
 }
@@ -48,7 +48,7 @@ int print_per(va_list args __attribute__((unused)))
 {
 	char per = '%';
 
-	putchar(per);
+	_putchar(per);
 	return (1);
 }
 

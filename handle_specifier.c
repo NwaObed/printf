@@ -24,7 +24,12 @@ int print_str(va_list args)
 	int i, s_len;
 
 	if (s == NULL)
-		return (-1);
+	{
+		s = "(null)";
+		for (i = 0; i < 6; i++)
+			_putchar(s[i]);
+		return (6);
+	}
 	s_len = strlen(s);
 	for (i = 0; i < s_len; i++)
 		_putchar(s[i]);

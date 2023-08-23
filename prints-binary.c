@@ -11,17 +11,12 @@ int print_binary(va_list args)
 	int binary[32], bit;
 	int ind = 0, i, count = 0;
 
-	if (b == 1)
-	{
-		_putchar('1');
-		count++;
-	}
 	if (b == 0)
 	{
 		_putchar('0');
 		count++;
 	}
-	while (b > 2)
+	while (b > 0)
 	{
 		bit = b % 2;
 		binary[ind++] = bit;

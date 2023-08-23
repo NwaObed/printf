@@ -21,7 +21,7 @@ int print_binary(va_list args)
 		_putchar('0');
 		count++;
 	}
-	while (b > 0)
+	while (b > 2)
 	{
 		bit = b % 2;
 		binary[ind++] = bit;

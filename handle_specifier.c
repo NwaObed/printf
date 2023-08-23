@@ -106,6 +106,12 @@ int print_decimal(va_list args __attribute__((unused)))
 		d = -d;
 		count++;
 	}
+	if (d == INT_MIN)
+	{
+		_putchar('-');
+		d = INT_MAX;
+		count++;
+	}
 	tmp = d;
 	while (tmp > 0)
 	{
@@ -122,5 +128,7 @@ int print_decimal(va_list args __attribute__((unused)))
 		div /= 10; /*moves to next signfct val */
 		count++;
 	}
+	if (d == INT_MIN)
+		_putchar((d + 1) + '0');
 	return (count);
 }

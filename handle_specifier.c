@@ -9,7 +9,7 @@ int print_char(va_list args)
 {
 	char c = va_arg(args, int);
 
-	putchar(c);
+	_putchar(c);
 	return (1);
 }
 
@@ -24,13 +24,15 @@ int print_str(va_list args)
 	int i, s_len;
 
 	if (s == NULL)
-		return (-1);
-	else
 	{
-		s_len = strlen(s);
-		for (i = 0; i < s_len; i++)
-			putchar(s[i]);
+		s = "(null)";
+		for (i = 0; i < 6; i++)
+			_putchar(s[i]);
+		return (6);
 	}
+	s_len = strlen(s);
+	for (i = 0; i < s_len; i++)
+		_putchar(s[i]);
 	return (s_len);
 }
 
@@ -43,7 +45,7 @@ int print_per(va_list args __attribute__((unused)))
 {
 	char per = '%';
 
-	putchar(per);
+	_putchar(per);
 	return (1);
 }
 
@@ -56,6 +58,7 @@ int print_per(va_list args __attribute__((unused)))
 int print_int(va_list args __attribute__((unused)))
 {
 	int i = va_arg(args, int);
+<<<<<<< HEAD
 	int ind = 0, r;
 	int count = 0;
 	char result[10];
@@ -91,8 +94,79 @@ int print_int(va_list args __attribute__((unused)))
 			 printf("I am reversed");
 			putchar(result[r]);
 		}
+=======
+	int val = 0, dgt, tmp, count = 0;
+	int j, div = 1; /*multiplies by 10*/
+	/* to collect most significant digits*/
+
+	if (i < 0)
+	{
+		_putchar('-');
+		i = -i;
+		count++;
 	}
-/*	printf("%d", count);*/
-/*	printf("%s", result);*/
+	tmp = i;
+	while (tmp > 0)
+	{
+		tmp /= 10;
+		val++;
+	}
+	for (j = 0; j < val - 1; j++)
+		div = div * 10;
+	while (div > 0)
+	{
+		dgt = i / div;
+		_putchar('0' + dgt); /*conversion*/
+		i %= div; /*removing most signfct val */
+		div /= 10; /*moves to next signfct val */
+		count++;
+	}
+	return (count);
+}
+
+/**
+ * print_decimal - prints the format string
+ * if no specifier is encountered
+ * @args: list of arguments
+ * Return: integer printed ?
+ */
+int print_decimal(va_list args __attribute__((unused)))
+{
+	int d = va_arg(args, int);
+	int val = 0, dgt, tmp, count = 0;
+	int j, div = 1; /*multiplies by 10*/
+	/* to collect most significant digits*/
+
+	if (d < 0)
+	{
+		_putchar('-');
+		d = -d;
+		count++;
+	}
+	if (d == INT_MIN)
+	{
+		_putchar('-');
+		d = INT_MAX;
+		count++;
+	}
+	tmp = d;
+	while (tmp > 0)
+	{
+		tmp /= 10;
+		val++;
+	}
+	for (j = 0; j < val - 1; j++)
+		div = div * 10;
+	while (div > 0)
+	{
+		dgt = d / div;
+		_putchar('0' + dgt); /*conversion*/
+		d %= div; /*removing most signfct val */
+		div /= 10; /*moves to next signfct val */
+		count++;
+>>>>>>> c64a35b9e1eb67cd46172e2c7b0c0795de843719
+	}
+	if (d == INT_MIN)
+		_putchar((d + 1) + '0');
 	return (count);
 }

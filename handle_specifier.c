@@ -58,7 +58,6 @@ int print_per(va_list args __attribute__((unused)))
 int print_int(va_list args __attribute__((unused)))
 {
 	int i = va_arg(args, int);
-<<<<<<< HEAD
 	int ind = 0, r;
 	int count = 0;
 	char result[10];
@@ -94,7 +93,6 @@ int print_int(va_list args __attribute__((unused)))
 			 printf("I am reversed");
 			putchar(result[r]);
 		}
-=======
 	int val = 0, dgt, tmp, count = 0;
 	int j, div = 1; /*multiplies by 10*/
 	/* to collect most significant digits*/
@@ -164,7 +162,6 @@ int print_decimal(va_list args __attribute__((unused)))
 		d %= div; /*removing most signfct val */
 		div /= 10; /*moves to next signfct val */
 		count++;
->>>>>>> c64a35b9e1eb67cd46172e2c7b0c0795de843719
 	}
 	if (d == INT_MIN)
 		_putchar((d + 1) + '0');

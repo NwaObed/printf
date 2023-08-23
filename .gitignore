@@ -2,4 +2,4 @@ main.c
 git.sh
 create_branch
 a.out
-testfiles/
+test/

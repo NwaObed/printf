@@ -9,10 +9,10 @@ int _printf(const char *format, ...)
 {
 	va_list args;
 	print_it print_func[] = {
-		{"%c", print_char},
+		{"%c", print_char}, {"%b", print_binary},
 		{"%s", print_str},
 		{"%%", print_per},
-		{"%d", print_int},
+		{"%i", print_int}, {"%d", print_decimal}
 	};
 
 	int i = 0, r_len = 0;
@@ -20,6 +20,9 @@ int _printf(const char *format, ...)
 	size_t j, s_num = sizeof(print_func) / sizeof(print_func[0]);
 
 	va_start(args, format);
+
+	if (format == NULL || (format[i] == '%' && format[i + 1] == '\0'))
+		return (-1);
 	while (format[i] != '\0')
 	{
 		for (j = 0; j < s_num; j++)
@@ -34,14 +37,11 @@ int _printf(const char *format, ...)
 		}
 		if (j < s_num)
 			continue;
-		putchar(format[i]);
+		_putchar(format[i]);
 		r_len++;
 		i++;
 	}
-	va_end(args);
-
-	if (format[i] == '%' && format[i + 1] == '\0')
-		return (-1);
 
 	return (r_len);
+	va_end(args);
 }

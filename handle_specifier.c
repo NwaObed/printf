@@ -63,60 +63,30 @@ int print_int(va_list args __attribute__((unused)))
 	char result[10];
 	int dgt, j = i;
 	char *ptr;
-	
+
 	if (i < 10)
 		putchar('0' + i);
 	else
 	{
 		while (i >= 10)
 		{
-			printf("I am looping \n");
-			printf("Step: %d\n\n", i);
 			dgt = i % 10;
 			result[ind] = dgt;
 			i /= 10;
 			ind++;
 		}
 		result[ind++] = i;
-		printf("%c", 'o');
 		for (r = (strlen(result) - 1); r == 0; r--)
 		{
 			if (result[r] == '\0')
 				continue;
 			else
 			{
-				printf("I am reversed");
 				putchar(result[r]);
 			}
 		}
 	}
-	int val = 0, tmp;
-	int div = 1; /*multiplies by 10*/
-	/* to collect most significant digits*/
-
-	if (i < 0)
-	{
-		_putchar('-');
-		i = -i;
-		count++;
-	}
-	tmp = i;
-	while (tmp > 0)
-	{
-		tmp /= 10;
-		val++;
-	}
-	for (j = 0; j < val - 1; j++)
-		div = div * 10;
-	while (div > 0)
-	{
-		dgt = i / div;
-		_putchar('0' + dgt); /*conversion*/
-		i %= div; /*removing most signfct val */
-		div /= 10; /*moves to next signfct val */
-		count++;
-	}
-	return (count);
+	return (ind);
 }
 
 /**
@@ -164,15 +134,3 @@ int print_decimal(va_list args __attribute__((unused)))
 		_putchar((d + 1) + '0');
 	return (count);
 }
-/**
- * print_binary - prints the format string
- * if no specifier is encountered
- * @args: list of arguments
- * Return: integer printed ?
- */
-/**
-  * int print_binary(va_list args __attribute__((unused)))
-  * {
-  * return (0);
-  * }
-  */

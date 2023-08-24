@@ -9,7 +9,15 @@
 #include <limits.h>
 #include <unistd.h>
 
-/* strutures for all cases */
+/**
+ * struct printer - print specifiers
+ * @specifier: pointer to the format specifier
+ * @print: value to print
+ *
+ * Description: Printf structure
+ *              for Holberton project
+ */
+
 typedef struct printer
 {
 	const char *specifier;

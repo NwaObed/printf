@@ -99,8 +99,7 @@ int print_decimal(va_list args __attribute__((unused)))
 {
 	int d = va_arg(args, int);
 	int val = 0, dgt, tmp, count = 0;
-	int j, div = 1; /*multiplies by 10*/
-	/* to collect most significant digits*/
+	int j, div = 1; 
 
 	if (d < 0)
 	{
@@ -125,9 +124,9 @@ int print_decimal(va_list args __attribute__((unused)))
 	while (div > 0)
 	{
 		dgt = d / div;
-		_putchar('0' + dgt); /*conversion*/
-		d %= div; /*removing most signfct val */
-		div /= 10; /*moves to next signfct val */
+		_putchar('0' + dgt);
+		d %= div;
+		div /= 10;
 		count++;
 	}
 	if (d == INT_MIN)

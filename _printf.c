@@ -9,10 +9,12 @@ int _printf(const char *format, ...)
 {
 	va_list args;
 	print_it print_func[] = {
-		{"%c", print_char},
+		{"%c", print_char}, {"%b", print_binary},
 		{"%s", print_str},
 		{"%%", print_per},
-		{"%d", print_decimal},
+		{"%i", print_int}, {"%d", print_decimal},
+		{"%u", print_unsigned_int},
+		{"%o", print_unsigned_octal}
 	};
 
 	int i = 0, r_len = 0;

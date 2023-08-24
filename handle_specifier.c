@@ -68,12 +68,6 @@ int print_int(va_list args __attribute__((unused)))
 		putchar('0' + i);
 	else
 	{
-/*		while (i >= 10)*/
-	/*	{*/
-		/*	i /= 10;*/
-/*			count++;*/
-/*		}*/
-/*		i = j;*/
 		while (i >= 10)
 		{
 			printf("I am looping \n");
@@ -89,12 +83,15 @@ int print_int(va_list args __attribute__((unused)))
 		{
 			if (result[r] == '\0')
 				continue;
-		else
-			 printf("I am reversed");
-			putchar(result[r]);
+			else
+			{
+				printf("I am reversed");
+				putchar(result[r]);
+			}
 		}
-	int val = 0, dgt, tmp, count = 0;
-	int j, div = 1; /*multiplies by 10*/
+	}
+	int val = 0, tmp;
+	int div = 1; /*multiplies by 10*/
 	/* to collect most significant digits*/
 
 	if (i < 0)
@@ -166,4 +163,15 @@ int print_decimal(va_list args __attribute__((unused)))
 	if (d == INT_MIN)
 		_putchar((d + 1) + '0');
 	return (count);
+}
+/**
+ * print_binary - prints the format string
+ * if no specifier is encountered
+ * @args: list of arguments
+ * Return: integer printed ?
+ */
+int print_binary(va_list args __attribute__((unused)))
+{
+
+	return (0);
 }

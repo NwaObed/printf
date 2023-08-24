@@ -12,7 +12,9 @@ int _printf(const char *format, ...)
 		{"%c", print_char}, {"%b", print_binary},
 		{"%s", print_str},
 		{"%%", print_per},
-		{"%i", print_int}, {"%d", print_decimal}
+		{"%i", print_int}, {"%d", print_decimal},
+		{"%u", print_unsigned_int},
+		{"%o", print_unsigned_octal}
 	};
 
 	int i = 0, r_len = 0;

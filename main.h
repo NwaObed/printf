@@ -25,5 +25,7 @@ int print_per(va_list args);
 int print_int(va_list args);
 int print_decimal(va_list args);
 int print_binary(va_list args);
+int print_unsigned_int(va_list args);
+int print_unsigned_octal(va_list args);
 
 #endif /* MAIN_H */

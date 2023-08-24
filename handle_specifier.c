@@ -171,7 +171,8 @@ int print_decimal(va_list args __attribute__((unused)))
  * Return: integer printed ?
  */
 int print_binary(va_list args __attribute__((unused)))
-{
-
-	return (0);
-}
+/**
+  * {
+  * return (0);
+  * }
+  */

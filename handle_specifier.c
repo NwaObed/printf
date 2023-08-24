@@ -12,7 +12,6 @@ int print_char(va_list args)
 	_putchar(c);
 	return (1);
 }
-
 /**
  * print_str - helper function to print string
  * @args: list of arguments
@@ -35,7 +34,6 @@ int print_str(va_list args)
 		_putchar(s[i]);
 	return (s_len);
 }
-
 /**
  * print_per - helper function to print %
  * @args: list of arguments
@@ -48,7 +46,6 @@ int print_per(va_list args __attribute__((unused)))
 	_putchar(per);
 	return (1);
 }
-
 /**
  * print_int - prints the format string
  * if no specifier is encountered

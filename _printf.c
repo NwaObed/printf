@@ -14,7 +14,8 @@ int _printf(const char *format, ...)
 		{"%%", print_per},
 		{"%i", print_int}, {"%d", print_decimal},
 		{"%u", print_unsigned_int},
-		{"%o", print_unsigned_octal}
+		{"%o", print_octal},
+		{"%x", print_hex}, {"%X", print_heX}
 	};
 
 	int i = 0, r_len = 0;

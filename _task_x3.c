@@ -9,7 +9,7 @@ int print_unsigned_int(va_list args __attribute__((unused)))
 {
 	unsigned int num = va_arg(args, unsigned int);
 	int arrSize = get_byte(num);
-	
+
 	_loop_print(num, 20);
 }
 /**
@@ -55,7 +55,7 @@ int _loop_print(unsigned int num, int arrSize)
 	unsigned int dgt;
 	unsigned int result[arrSize];
 	int r, ind = 0, count = 0;
-	unsigned int d = 10; 
+	unsigned int d = 10;
 
 	while (num >= 10)
 	{
@@ -80,7 +80,8 @@ int _loop_print(unsigned int num, int arrSize)
 int get_byte(int num)
 {
 	int dgt;
-	int count = 1;/** if num < 10, we will return this without loop*/
+	int count = 1;
+
 	while (num >= 10)
 	{
 		dgt = num % 10;

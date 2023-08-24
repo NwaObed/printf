@@ -56,10 +56,8 @@ int print_int(va_list args __attribute__((unused)))
 {
 	int i = va_arg(args, int);
 	int ind = 0, r;
-	int count = 0;
 	char result[10];
-	int dgt, j = i;
-	char *ptr;
+	int dgt;
 
 	if (i < 10)
 		putchar('0' + i);
@@ -96,7 +94,7 @@ int print_decimal(va_list args __attribute__((unused)))
 {
 	int d = va_arg(args, int);
 	int val = 0, dgt, tmp, count = 0;
-	int j, div = 1; 
+	int j, div = 1;
 
 	if (d < 0)
 	{

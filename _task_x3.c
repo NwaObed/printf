@@ -1,50 +1,4 @@
 #include "main.h"
-/**
- * print_unsigned_int - prints the format string
- * if no specifier is encountered
- * @args: list of arguments
- * Return: integer printed ?
- */
-int print_unsigned_int(va_list args __attribute__((unused)))
-{
-	unsigned int num = va_arg(args, unsigned int);
-	int arrSize = get_byte(num);
-
-	_loop_print(num, 20);
-}
-/**
-  * print_unsigned_octal - prints the format string
-  * if no specifier is encountered * @args: list of arguments
-  * Return: integer printed ?
-  */
-int print_unsigned_octal(va_list args __attribute__((unused)))
-{
-	unsigned int num = va_arg(args, unsigned int);
-	unsigned int octalNum = _convert_int_to_oct(num);
-	int count, arrSize = get_byte(num);
-
-	count = _loop_print(octalNum, arrSize);
-	return (count);
-}
-/**
-  * _convert_int_to_oct - Convert decimal to octal
-  * @num: int to convert
-  * Return: Nothing
-  */
-unsigned int _convert_int_to_oct(unsigned int num)
-{
-	unsigned int octalNum = 0;
-	unsigned int remainder, place = 1;
-
-	while (num > 0)
-	{
-		remainder = num % 8;
-		octalNum += remainder * place;
-		num /= 8;
-		place *= 10;
-	}
-	return (octalNum);
-}
 
 /**
   * _loop_print - Loop printing with a while statement
@@ -91,3 +45,55 @@ int get_byte(int num)
 	}
 	return (count);
 }
+
+
+/**
+  * _convert_int_to_oct - Convert decimal to octal
+  * @num: int to convert
+  * Return: Nothing
+  */
+unsigned int _convert_int_to_oct(unsigned int num)
+{
+	unsigned int octalNum = 0;
+	unsigned int remainder, place = 1;
+
+	while (num > 0)
+	{
+		remainder = num % 8;
+		octalNum += remainder * place;
+		num /= 8;
+		place *= 10;
+	}
+	return (octalNum);
+}
+
+/**
+ * print_unsigned_int - prints the format string
+ * if no specifier is encountered
+ * @args: list of arguments
+ * Return: integer printed ?
+ */
+int print_unsigned_int(va_list args __attribute__((unused)))
+{
+	unsigned int num = va_arg(args, unsigned int);
+	int arrSize;
+
+	arrSize = get_byte(num);
+
+	_loop_print(num, 20);
+}
+/**
+  * print_unsigned_octal - prints the format string
+  * if no specifier is encountered * @args: list of arguments
+  * Return: integer printed ?
+  */
+int print_unsigned_octal(va_list args __attribute__((unused)))
+{
+	unsigned int num = va_arg(args, unsigned int);
+	unsigned int octalNum = _convert_int_to_oct(num);
+	int count, arrSize = get_byte(num);
+
+	count = _loop_print(octalNum, arrSize);
+	return (count);
+}
+

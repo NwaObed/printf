@@ -45,7 +45,7 @@ int print_int(va_list args)
 	}
 
 	_putchar(end + '0');
-	return (++count);
+	return (count++);
 }
 
 /**
@@ -94,7 +94,7 @@ int print_decimal(va_list args)
 	}
 
 	_putchar(end + '0');
-	return (++count);
+	return (count++);
 }
 
 /**

@@ -11,6 +11,7 @@ int print_int(va_list args)
 	int d = va_arg(args, int);
 	int val = 0, dgt, tmp, count = 0;
 	int j, div = 1, end = d % 10;
+	int r_zero = 0;
 
 	d = d / 10;
 	tmp = d;
@@ -33,10 +34,14 @@ int print_int(va_list args)
 	while (div > 0)
 	{
 		dgt = d / div;
-		_putchar('0' + dgt);
+		if (dgt != 0 || r_zero)
+		{
+			_putchar('0' + dgt);
+			r_zero = 1;
+			count++;
+		}
 		d %= div;
 		div /= 10;
-		count++;
 	}
 
 	_putchar(end + '0');
@@ -55,6 +60,7 @@ int print_decimal(va_list args)
 	int d = va_arg(args, int);
 	int val = 0, dgt, tmp, count = 0;
 	int j, div = 1, end = d % 10;
+	int r_zero = 0;
 
 	d = d / 10;
 	tmp = d;
@@ -77,10 +83,14 @@ int print_decimal(va_list args)
 	while (div > 0)
 	{
 		dgt = d / div;
-		_putchar('0' + dgt);
+		if (dgt != 0 || r_zero)
+		{
+			_putchar('0' + dgt);
+			r_zero = 1;
+			count++;
+		}
 		d %= div;
 		div /= 10;
-		count++;
 	}
 
 	_putchar(end + '0');

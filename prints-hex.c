@@ -9,7 +9,7 @@ int print_hex(va_list args)
 {
 	size_t h = va_arg(args, unsigned int);
 	char hexa[32];
-	char hex[] = "123456789abcdef";
+	char hex[] = "0123456789abcdef";
 	int ind = 0, i;
 
 	while (h > 0)
@@ -33,7 +33,7 @@ int print_heX(va_list args)
 {
 	size_t h = va_arg(args, unsigned int);
 	char hexA[32];
-	char hex[] = "123456789ABCDEF";
+	char hex[] = "0123456789ABCDEF";
 	int ind = 0, i;
 
 	while (h > 0)

@@ -12,6 +12,11 @@ int print_hex(va_list args)
 	char hex[] = "0123456789abcdef";
 	int ind = 0, i;
 
+	if (h == 0)
+	{
+		_putchar('0');
+		ind++;
+	}
 	while (h > 0)
 	{
 		hexa[ind++] = hex[h % 16];
@@ -36,6 +41,11 @@ int print_heX(va_list args)
 	char hex[] = "0123456789ABCDEF";
 	int ind = 0, i;
 
+	if (h == 0)
+	{
+		_putchar('0');
+		ind++;
+	}
 	while (h > 0)
 	{
 		hexA[ind++] = hex[h % 16];

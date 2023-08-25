@@ -8,14 +8,14 @@
 int print_binary(va_list args)
 {
 	int b = va_arg(args, unsigned int);
-	int binary[32], bit;
+	int size = _intlen_recursion(b);
+	int binary[size], bit;
 	int ind = 0, i, count = 0;
 
 	if (b == 0)
 	{
 		_putchar('0');
 		count++;
-		ind++;
 	}
 	while (b > 0)
 	{

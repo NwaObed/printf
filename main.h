@@ -37,7 +37,7 @@ int print_heX(va_list args);
 int _intlen_recursion(int num);
 int *_twosComplement(int *binary, int bin);
 int *_convert_binary(int num);
-int _loop_print(int *num);
+int _loop_print(unsigned int num, int arrSize);
 int _arrlen(int *arr[]);
 
 #endif /* MAIN_H */

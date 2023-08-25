@@ -22,6 +22,7 @@ int print_octal(va_list args)
 			octal[ind++] = (o % 8) + 48;
 			o = o / 8;
 		}
+		printf("%s", octal);
 		for (i = ind - 1; i >= 0; i--)
 		{
 			_putchar(octal[i]);

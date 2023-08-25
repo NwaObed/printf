@@ -2,12 +2,14 @@
 
 /**
   * _loop_print - Loop printing with a while statement
+  * @num: does something important
+  * @arrSize: this too
   * Return: number of bytes
   */
 int _loop_print(unsigned int num, int arrSize)
 {
 	unsigned int dgt;
-	unsigned int result[arrSize];
+	int result[arrSize];
 	int r, ind = 0, count = 0;
 	unsigned int d = 10;
 
@@ -33,7 +35,7 @@ int _loop_print(unsigned int num, int arrSize)
   */
 int get_byte(int num)
 {
-	int dgt;
+	int dgt __attribute__((unused));
 	int count = 1;
 
 	while (num >= 10)
@@ -76,11 +78,12 @@ unsigned int _convert_int_to_oct(unsigned int num)
 int print_unsigned_int(va_list args __attribute__((unused)))
 {
 	unsigned int num = va_arg(args, unsigned int);
-	int arrSize;
 
+	int arrSize __attribute__((unused)), count;
 	arrSize = get_byte(num);
 
-	_loop_print(num, 20);
+	count = _loop_print(num, arrSize);
+	return (count);
 }
 /**
   * print_unsigned_octal - prints the format string

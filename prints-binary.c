@@ -15,6 +15,7 @@ int print_binary(va_list args)
 	{
 		_putchar('0');
 		count++;
+		ind++;
 	}
 	while (b > 0)
 	{

@@ -54,21 +54,19 @@ int print_decimal(va_list args)
 {
 	int d = va_arg(args, int);
 	int val = 0, dgt, tmp, count = 0;
-	int j, div = 1;
+	int j, div = 1, end = d % 10;
 
-	if (d < 0)
+	d = d / 10;
+	tmp = d;
+
+	if (end < 0)
 	{
 		_putchar('-');
 		d = -d;
+		end = -end;
+		tmp = -tmp;
 		count++;
 	}
-	if (d == INT_MIN)
-	{
-		_putchar('-');
-		d = INT_MAX;
-		count++;
-	}
-	tmp = d;
 	while (tmp > 0)
 	{
 		tmp /= 10;
@@ -84,8 +82,8 @@ int print_decimal(va_list args)
 		div /= 10;
 		count++;
 	}
-	if (d == INT_MIN)
-		_putchar((d + 1) + '0');
+
+	_putchar(end + '0');
 	return (count);
 }
 

@@ -33,11 +33,8 @@ int print_binary(va_list args)
 		if (neg)
 		{
 			while (ind < 32)
-			{
 				binary[ind++] = 1;
-			}
 		}
-
 		for (i = ind - 1; i >= 0; i--)
 		{
 			_putchar(binary[i] + '0');
@@ -46,5 +43,7 @@ int print_binary(va_list args)
 	}
 	if (neg)
 		count -= 1;
+	else
+		++count;
 	return (count);
 }

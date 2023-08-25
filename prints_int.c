@@ -38,14 +38,15 @@ int print_int(va_list args)
 		{
 			_putchar('0' + dgt);
 			r_zero = 1;
+			count++;
 		}
-		count++;
 		d %= div;
 		div /= 10;
 	}
 
 	_putchar(end + '0');
-	return (count++);
+	count++;
+	return (count);
 }
 
 /**
@@ -64,7 +65,6 @@ int print_decimal(va_list args)
 
 	d = d / 10;
 	tmp = d;
-
 	if (end < 0)
 	{
 		_putchar('-');
@@ -87,14 +87,15 @@ int print_decimal(va_list args)
 		{
 			_putchar('0' + dgt);
 			r_zero = 1;
+			count++;
 		}
-		count++;
 		d %= div;
 		div /= 10;
 	}
 
 	_putchar(end + '0');
-	return (count++);
+	count++;
+	return (count);
 }
 
 /**

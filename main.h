@@ -34,5 +34,10 @@ int print_unsigned_int(va_list args);
 int print_octal(va_list args);
 int print_hex(va_list args);
 int print_heX(va_list args);
+int _intlen_recursion(int num);
+int *_twosComplement(int *binary, int bin);
+int *_convert_binary(int num);
+int _loop_print(int *num);
+int _arrlen(int *arr[]);
 
 #endif /* MAIN_H */

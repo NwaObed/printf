@@ -19,8 +19,8 @@ int print_octal(va_list args)
 	{
 		while (o > 0)
 		{
-			octal[ind++] = (o % 8) + '0';
-			o /= 8;
+			octal[ind++] = (o % 8) + 48;
+			o = o / 8;
 		}
 		for (i = ind - 1; i >= 0; i--)
 		{

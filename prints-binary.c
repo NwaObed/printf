@@ -8,8 +8,7 @@
 int print_binary(va_list args)
 {
 	int b = va_arg(args, unsigned int);
-	int size = _intlen_recursion(b);
-	int binary[size], bit;
+	int binary[32], bit;
 	int ind = 0, i, count = 0;
 
 	if (b == 0)

@@ -19,10 +19,11 @@ int print_octal(va_list args)
 	{
 		while (o > 0)
 		{
-			octal[ind++] = (o % 8) + 48;
+			octal[ind] = (o % 8) + 48;
 			o = o / 8;
+			ind++;
 		}
-		printf("%s", octal);
+		/*printf("%s", octal);*/
 		for (i = ind - 1; i >= 0; i--)
 		{
 			_putchar(octal[i]);

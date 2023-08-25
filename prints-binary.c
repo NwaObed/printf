@@ -41,9 +41,5 @@ int print_binary(va_list args)
 			count++;
 		}
 	}
-	if (neg)
-		count -= 1;
-	else
-		++count;
 	return (count);
 }

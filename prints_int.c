@@ -108,24 +108,32 @@ int print_decimal(va_list args)
 int print_unsigned_int(va_list args)
 {
 	size_t u = va_arg(args, unsigned int);
-	int val = 0, dgt, tmp, count = 0;
-	int j, div = 1;
+	int count = 0, bits = 0;
+	size_t tmp, div = 1;
+	int i, bit;
 
 	tmp = u;
 	while (tmp > 0)
 	{
+		bits++;
 		tmp /= 10;
-		val++;
 	}
-	for (j = 0; j < val - 1; j++)
-		div = div * 10;
-	while (div > 0)
+	if (u == 0)
 	{
-		dgt = u / div;
-		_putchar('0' + dgt);
-		u %= div;
-		div /= 10;
+		_putchar('0');
 		count++;
+	} else
+	{
+		for (i = 1; i < bits; i++)
+			div *= 10;
+		while (div > 0)
+		{
+			bit = u / div;
+			_putchar(bit + '0');
+			u %= div;
+			div /= 10;
+			count++;
+		}
 	}
 
 	return (count);

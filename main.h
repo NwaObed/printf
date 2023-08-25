@@ -10,6 +10,11 @@
 #include <unistd.h>
 
 /* strutures for all cases */
+/**
+ * struct printer - prints format specified pointers
+ * @specifier: the ID of the format
+ * @print: function pointer
+ */
 typedef struct printer
 {
 	const char *specifier;

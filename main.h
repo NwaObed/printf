@@ -34,5 +34,6 @@ int print_unsigned_int(va_list args);
 int print_octal(va_list args);
 int print_hex(va_list args);
 int print_heX(va_list args);
+int _intlen_recursion(int num);
 
 #endif /* MAIN_H */
